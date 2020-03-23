@@ -35,9 +35,9 @@ fetch(apiURL + '/games', {
         //                     "<button class='delete-btn' id='" + arrayOfGames[i]._id + "' onclick= \deleteGame('" + arrayOfGames[i]._id + "')\>Delete</button>";
         // container.innerHTML = gameElements;
         gameElements += `<h1>${arrayOfGames[i].title}</h1> 
-                            <img src=${arrayOfGames[i].imageUrl} />
+                            <img src="${arrayOfGames[i].imageUrl}" />
                             <p>${arrayOfGames[i].description}</p> 
-                            <button class="delete-btn" onclick= "deleteGame("${arrayOfGames[i]._id}")">Delete</button>`;
+                            <button class="delete-btn" onclick= "deleteGame('${arrayOfGames[i]._id}')">Delete</button>`;
         container.innerHTML = gameElements;
     }
 });
@@ -49,6 +49,7 @@ function deleteGame(gameId) {
         return r.text();
     }).then(function(apiresponse){
         console.log(apiresponse);
+        location.reload(true);
     });
 }
 // var deleteBtns = document.getElementsByClassName(".delete-btn")
